@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+
+
 </head>
+
 <body>
-    <input type="text" id="message">
-    <button onclick="send()">Send</button>
-    <div id="messages"></div>
-    <script>
-        const socket = new WebSocket('ws://localhost/ws');
-        socket.onopen = function() {
-            console.log('Connected to server');
-        };
-        socket.onmessage = function(event) {
-            console.log('Received message:'+ event.data);
-            const messages = document.getElementById('messages');
-            const message = document.createElement('p');
-            message.textContent = event.data;
-            messages.appendChild(message);
-        };
-        function send() {
-            const message = document.getElementById('message').value;
-            socket.send(message);
-            console.log('Sent message:'+ message);
-        }
-    </script>
+    <div class="fullscreen"> </div>
+
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
